@@ -50,7 +50,6 @@ body {
   align-items: center;
   text-align: center;
 
-  /* fade-in */
   opacity: 0;
   transform: translateY(40px);
   transition: all 1.2s ease;
@@ -61,7 +60,6 @@ body {
   transform: translateY(0);
 }
 
-/* Overlay for readability */
 .overlay {
   position: absolute;
   inset: 0;
@@ -69,7 +67,6 @@ body {
   z-index: 1;
 }
 
-/* Content on top */
 .content {
   position: relative;
   z-index: 2;
@@ -92,14 +89,12 @@ p {
   opacity: 0.9;
 }
 
-/* Glow effect for special sections */
 .glow {
   text-shadow: 0 0 18px rgba(255,200,220,0.6);
 }
 
 /* =========================
    BACKGROUND IMAGES
-   Replace URLs with your own if desired
 ========================= */
 .hero { background-image: url("https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1500"); }
 .cafe { background-image: url("https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=1500"); }
