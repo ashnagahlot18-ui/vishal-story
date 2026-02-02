@@ -1,18 +1,14 @@
-/* ===============================
-   MUSIC CONTROLLER
-================================ */
+// ===== MUSIC CONTROLLER =====
+var music = document.getElementById("bgMusic");
+var musicBar = document.getElementById("musicBar");
+var isPlaying = false;
 
-const music = document.getElementById("bgMusic");
-const musicBar = document.getElementById("musicBar");
-
-let isPlaying = false;
-
-musicBar.addEventListener("click", () => {
+musicBar.addEventListener("click", function() {
   if (!isPlaying) {
-    music.play().then(() => {
+    music.play().then(function() {
       isPlaying = true;
       musicBar.innerText = "🎶 Playing our story";
-    }).catch(err => {
+    }).catch(function(err) {
       console.log("Music play blocked:", err);
     });
   } else {
@@ -22,33 +18,26 @@ musicBar.addEventListener("click", () => {
   }
 });
 
-/* ===============================
-   FADE-IN ON SCROLL
-================================ */
+// ===== FADE-IN ON SCROLL =====
+var scenes = document.querySelectorAll(".scene");
 
-const scenes = document.querySelectorAll(".scene");
+var observer = new IntersectionObserver(function(entries) {
+  entries.forEach(function(entry) {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("show");
+    }
+  });
+}, { threshold: 0.2 });
 
-const observer = new IntersectionObserver(
-  (entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("show");
-      }
-    });
-  },
-  { threshold: 0.2 }
-);
+scenes.forEach(function(scene) {
+  observer.observe(scene);
+});
 
-scenes.forEach(scene => observer.observe(scene));
-
-/* ===============================
-   FLOATING PARTICLES
-================================ */
-
-const particleContainer = document.querySelector(".particles");
+// ===== FLOATING PARTICLES =====
+var particleContainer = document.querySelector(".particles");
 
 function createParticle() {
-  const particle = document.createElement("span");
+  var particle = document.createElement("span");
   particle.innerText = "✨";
   particle.style.left = Math.random() * 100 + "vw";
   particle.style.fontSize = Math.random() * 10 + 12 + "px";
@@ -56,10 +45,11 @@ function createParticle() {
 
   particleContainer.appendChild(particle);
 
-  setTimeout(() => {
+  setTimeout(function() {
     particle.remove();
   }, 12000);
 }
 
 setInterval(createParticle, 500);
+
 
