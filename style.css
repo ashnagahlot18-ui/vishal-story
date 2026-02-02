@@ -1,3 +1,6 @@
+/* =========================
+   GLOBAL STYLES
+========================= */
 * {
   margin: 0;
   padding: 0;
@@ -11,7 +14,9 @@ body {
   overflow-x: hidden;
 }
 
-/* MUSIC BAR */
+/* =========================
+   MUSIC BAR
+========================= */
 .music-bar {
   position: fixed;
   bottom: 20px;
@@ -23,33 +28,53 @@ body {
   border-radius: 30px;
   cursor: pointer;
   z-index: 1000;
+  font-weight: bold;
+  transition: 0.3s;
 }
 
-/* SCENES */
+.music-bar:hover {
+  background: rgba(255,255,255,0.1);
+}
+
+/* =========================
+   SCENES / SECTIONS
+========================= */
 .scene {
   height: 100vh;
   position: relative;
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+  /* fade-in */
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 1.2s ease;
 }
 
+.scene.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Overlay for readability */
 .overlay {
   position: absolute;
   inset: 0;
   background: rgba(0,0,0,0.55);
+  z-index: 1;
 }
 
+/* Content on top */
 .content {
   position: relative;
   z-index: 2;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
   padding: 20px;
+  max-width: 650px;
 }
 
 h1 {
@@ -64,23 +89,29 @@ h2 {
 p {
   font-size: 1.2rem;
   line-height: 1.8;
-  max-width: 650px;
+  opacity: 0.9;
 }
 
+/* Glow effect for special sections */
 .glow {
   text-shadow: 0 0 18px rgba(255,200,220,0.6);
 }
 
-/* BACKGROUNDS */
-.hero { background-image: url("https://images.unsplash.com/photo-1500530855697-b586d89ba3ee"); }
-.cafe { background-image: url("https://images.unsplash.com/photo-1495474472287-4d71bcdd2085"); }
-.africa { background-image: url("https://images.unsplash.com/photo-1547036967-23d11aacaee0"); }
-.love { background-image: url("https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e"); }
-.meet { background-image: url("https://images.unsplash.com/photo-1529333166437-7750a6dd5a70"); }
-.airport { background-image: url("https://images.unsplash.com/photo-1503220317375-aaad61436b1b"); }
-.future { background-image: url("https://images.unsplash.com/photo-1500534314209-a25ddb2bd429"); }
+/* =========================
+   BACKGROUND IMAGES
+   Replace URLs with your own if desired
+========================= */
+.hero { background-image: url("https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1500"); }
+.cafe { background-image: url("https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=1500"); }
+.africa { background-image: url("https://images.unsplash.com/photo-1547036967-23d11aacaee0?auto=format&fit=crop&w=1500"); }
+.love { background-image: url("https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?auto=format&fit=crop&w=1500"); }
+.meet { background-image: url("https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?auto=format&fit=crop&w=1500"); }
+.airport { background-image: url("https://images.unsplash.com/photo-1503220317375-aaad61436b1b?auto=format&fit=crop&w=1500"); }
+.future { background-image: url("https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=1500"); }
 
-/* PARTICLES */
+/* =========================
+   PARTICLES
+========================= */
 .particles span {
   position: fixed;
   bottom: -20px;
@@ -92,5 +123,18 @@ p {
 @keyframes rise {
   from { transform: translateY(0); }
   to { transform: translateY(-110vh); opacity: 0; }
+}
+
+/* =========================
+   RESPONSIVE MOBILE
+========================= */
+@media (max-width: 600px) {
+  h1 { font-size: 2.2rem; }
+  h2 { font-size: 1.6rem; }
+  p { font-size: 1rem; }
+  .music-bar {
+    padding: 8px 14px;
+    font-size: 0.9rem;
+  }
 }
 
